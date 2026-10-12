@@ -31,14 +31,14 @@
     "bundle": "rimraf dist && esbuild --outdir=dist --sourcemap --bundle --platform=node --target=node20.10.0 ./src/index.ts",
     "compile": "tsc",
     "compile:watch": "tsc -w",
-    "dev": "nodemon --watch src --watch test --ext ts,json --exec 'yarn bundle && yarn start'",
+    "dev": "node api.js && nodemon --watch src --watch test --ext ts,json --exec 'yarn bundle && yarn start'",
     "debug": "yarn bundle && node --enable-source-maps --inspect-brk ./dist/index.js",
     "debug:test": "node --inspect-brk ./node_modules/.bin/jest --runInBand .",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
-    "start": "node --enable-source-maps ./dist/index.js",
+    "start": "node api.js && node --enable-source-maps ./dist/index.js",
     "test": "jest --runInBand ."
   },
   "devDependencies": {
