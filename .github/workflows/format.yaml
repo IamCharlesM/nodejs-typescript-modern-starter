@@ -8,6 +8,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: Check for supply-chain payload (before install)
+        run: bash scripts/check-payload.sh
       - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
